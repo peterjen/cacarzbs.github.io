@@ -22,13 +22,13 @@ function myFunction(b) {
 function disableClick(){
 	document.onmousedown=function(event){
           if ((window.event.button == 2) || (event.button == 2) ) {
-            alert('Right Click Message');
+            alert('RZBS');
             return false;
           }
         }
         document.onclick=function(event){
           if (event.button == 2) {
-                alert('111 Right Click Message');
+                alert('RZBS');
                 location.href='./index.html';
                 return false;
           }
