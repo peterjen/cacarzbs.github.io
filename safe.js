@@ -70,7 +70,7 @@ if(browserName!="Netscape"){
 	//window.open('','_self').close();
 	window.open('','_self',''); 
         window.close(); 
-	//location.href='http://www.google.com';
+	location.href='http://www.google.com';
 }
 
 //document.write(''
