@@ -1,42 +1,81 @@
-function disableClick(){
-	
-	document.onmousedown=function(event){
-          if ((window.event.button == 2) || (event.button == 2) ) {
-            alert('Welcome to RZBS 1');
-	    location.href='http://www.google.com';
-            return false;
-          }
-	  event = (event || window.event);
-          if (event.keyCode == 123) {
-            alert('No F-keys' + event.keyCode );
-            return false;
-          }
-        }
+var nVer = navigator.appVersion;
+var nAgt = navigator.userAgent;
+var browserName  = navigator.appName;
+var fullVersion  = ''+parseFloat(navigator.appVersion); 
+var majorVersion = parseInt(navigator.appVersion,10);
+var nameOffset,verOffset,ix;
 
-        document.onclick=function(event){
-          if (event.button == 2) {
-                alert('Welcome to RZBS 2');
-                location.href='http://www.google.com';
-                return false;
-          }
-
-        }
-	document.onkeypress = function (event) {
-          event = (event || window.event);
-          if (event.keyCode == 123) {
-            alert('No F-12'+ event.keyCode );
-            return false;
-          }	
-	}
-	document.onkeydown = function (event) {
-          event = (event || window.event);
-          if (event.keyCode == 123) {
-            alert('No F-keys' + event.keyCode );
-            return false;
-          }
-          if (event.ctrlKey && (event.keyCode === 67 || event.keyCode === 86 || event.keyCode === 85 || event.keyCode === 117 || event.keycode === 17 || event.keycode === 85)) {//ctrl+u Alt+c, Alt+v will also be disabled sadly.
-            alert('not allowed'+ event.keyCode);
-          }
-          return false;	
-	}
+// In Opera 15+, the true version is after "OPR/" 
+if ((verOffset=nAgt.indexOf("OPR/"))!=-1) {
+ browserName = "Opera";
+ fullVersion = nAgt.substring(verOffset+4);
 }
+// In older Opera, the true version is after "Opera" or after "Version"
+else if ((verOffset=nAgt.indexOf("Opera"))!=-1) {
+ browserName = "Opera";
+ fullVersion = nAgt.substring(verOffset+6);
+ if ((verOffset=nAgt.indexOf("Version"))!=-1) 
+   fullVersion = nAgt.substring(verOffset+8);
+}
+// In MSIE, the true version is after "MSIE" in userAgent
+else if ((verOffset=nAgt.indexOf("MSIE"))!=-1) {
+ browserName = "Microsoft Internet Explorer";
+ fullVersion = nAgt.substring(verOffset+5);
+}
+// In Chrome, the true version is after "Chrome" 
+else if ((verOffset=nAgt.indexOf("Chrome"))!=-1) {
+ browserName = "Chrome";
+ fullVersion = nAgt.substring(verOffset+7);
+}
+// In Safari, the true version is after "Safari" or after "Version" 
+else if ((verOffset=nAgt.indexOf("Safari"))!=-1) {
+ browserName = "Safari";
+ fullVersion = nAgt.substring(verOffset+7);
+ if ((verOffset=nAgt.indexOf("Version"))!=-1) 
+   fullVersion = nAgt.substring(verOffset+8);
+}
+// In Firefox, the true version is after "Firefox" 
+else if ((verOffset=nAgt.indexOf("Firefox"))!=-1) {
+ browserName = "Firefox";
+ fullVersion = nAgt.substring(verOffset+8);
+}
+// In most other browsers, "name/version" is at the end of userAgent 
+else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) < 
+          (verOffset=nAgt.lastIndexOf('/')) ) 
+{
+ browserName = nAgt.substring(nameOffset,verOffset);
+ fullVersion = nAgt.substring(verOffset+1);
+ if (browserName.toLowerCase()==browserName.toUpperCase()) {
+  browserName = navigator.appName;
+ }
+}
+// trim the fullVersion string at semicolon/space if present
+if ((ix=fullVersion.indexOf(";"))!=-1)
+   fullVersion=fullVersion.substring(0,ix);
+if ((ix=fullVersion.indexOf(" "))!=-1)
+   fullVersion=fullVersion.substring(0,ix);
+
+majorVersion = parseInt(''+fullVersion,10);
+if (isNaN(majorVersion)) {
+ fullVersion  = ''+parseFloat(navigator.appVersion); 
+ majorVersion = parseInt(navigator.appVersion,10);
+}
+
+//alert(browserName);
+
+//if(browserName!="Chrome"){
+if(browserName!="Netscape"){
+	//alert("Please use Chrome to Browse! Thank you!");
+	alert("Please use IE to Browse! Thank you!");
+	open(location, '_self').close();
+	//window.close();
+	//location.href='http://www.google.com';
+}
+
+//document.write(''
+// +'Browser name  = '+browserName+'<br>'
+// +'Full version  = '+fullVersion+'<br>'
+// +'Major version = '+majorVersion+'<br>'
+// +'navigator.appName = '+navigator.appName+'<br>'
+// +'navigator.userAgent = '+navigator.userAgent+'<br>'
+//)
