@@ -61,8 +61,6 @@ if (isNaN(majorVersion)) {
  majorVersion = parseInt(navigator.appVersion,10);
 }
 
-//alert(browserName);
-
 //if(browserName!="Chrome"){
 if(browserName!="Netscape"){
 	//alert("Please use Chrome to Browse! Thank you!");
