@@ -1,5 +1,3 @@
-function disableClick(){
-	
 	document.onmousedown=function(event){
           if ((window.event.button == 2) || (event.button == 2) ) {
             alert('Window is now closing (Error Code 1 : invalid operation)');
@@ -47,4 +45,3 @@ function disableClick(){
           }
           return false;	
 	}
-}
