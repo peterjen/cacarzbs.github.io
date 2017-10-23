@@ -67,7 +67,9 @@ if(browserName!="Netscape"){
 	alert("Please use IE to Browse! Thank you!");
 	//open(location, '_self').close();
 	//window.close();
-	window.open('','_self').close();
+	//window.open('','_self').close();
+	window.open('','_self',''); 
+        window.close(); 
 	//location.href='http://www.google.com';
 }
 
