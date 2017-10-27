@@ -61,17 +61,17 @@ if (isNaN(majorVersion)) {
  majorVersion = parseInt(navigator.appVersion,10);
 }
 
-//alert(browserName);
 //if(browserName!="Chrome"){
 if(browserName!="Netscape"){
 	//alert("Please use Chrome to Browse! Thank you!");
 	alert("Please use Internet Explorer! Thank you!");
+	location.href='http://www.google.com';
 	open(location, '_self').close();
 	//window.close();
 	//window.open('','_self').close();
 	//window.open('','_self',''); 
         //window.close(); 
-	location.href='http://www.google.com';
+	
 }
 
 //document.write(''
