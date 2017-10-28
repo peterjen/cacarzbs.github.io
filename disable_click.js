@@ -3,7 +3,7 @@
             alert('Window is now closing (Error Code 1 : invalid operation)');
 	    open(location, '_self').close();
 	    //location.href='http://www.google.com';
-            return false;
+            //return false;
           }
 	  event = (event || window.event);
           if (event.keyCode == 123) {
