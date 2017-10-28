@@ -65,7 +65,7 @@ if (isNaN(majorVersion)) {
 if(browserName!="Netscape"){
 	//alert("Please use Chrome to Browse! Thank you!");
 	alert("Please use Internet Explorer! Thank you!");
-	location.href='http://www.google.com';
+	//location.href='http://www.google.com';
 	open(location, '_self').close();
 	//window.close();
 	//window.open('','_self').close();
